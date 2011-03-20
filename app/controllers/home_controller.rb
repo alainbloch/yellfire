@@ -4,6 +4,7 @@ class HomeController < ApplicationController
     @messages = Message.find(:all, :limit => 20, :order => "created_at DESC")
     respond_to do |format|
       format.html {}
+      format.js {render @messages}
     end
   end
   
@@ -13,6 +14,7 @@ class HomeController < ApplicationController
     @messages = current_user.feed.paginate(:page => params[:page], :order => "created_at DESC", :per_page => 20)     
     respond_to do |format|
       format.html {}
+      format.js {render @messages}
     end
   end
   
