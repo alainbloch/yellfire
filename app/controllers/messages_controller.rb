@@ -8,14 +8,14 @@ class MessagesController < ApplicationController
         message = "Your message has been sent!"
         format.html do
           flash[:success] = message
-          redirect_to root_url
+          redirect_to dashboard_path
         end
         format.js{render(:update){|page| page.alert message}}
       else
         message = "An error has occurred."
         format.html do
           flash[:error] = message
-          redirect_to root_url
+          redirect_to dashboard_path
         end
         format.js{render(:update){|page| page.alert message}}
       end

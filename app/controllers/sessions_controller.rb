@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = UserSession.new(params[:user])    
     if @user.save
       flash[:notice] = "Logged in successfully."
-      redirect_to_target_or_default(root_url)
+      redirect_to_target_or_default(dashboard_path)
     else
       flash.now[:error] = "Invalid login or password."
       render :action => 'new'
