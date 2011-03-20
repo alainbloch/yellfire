@@ -15,9 +15,7 @@ class User < ActiveRecord::Base
   has_many :followers, :through => :followings
   
   has_many :messages, :dependent => :destroy
-  
-  html_sanitizer :sanitize => [:fullname, :bio]
-  
+    
   # Overriding authlogic validations
   acts_as_authentic do |auth|
     auth.require_password_confirmation = false
