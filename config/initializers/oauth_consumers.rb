@@ -40,7 +40,7 @@
 #   }
 # }
 # 
-=begin
+
 OAUTH_CREDENTIALS= {
  :twitter =>{
    :key    => "GiTznyGNxmVYUfFO0ocJTQ",
@@ -64,4 +64,3 @@ OAUTH_CREDENTIALS={
 } unless defined? OAUTH_CREDENTIALS
 
 load 'oauth/models/consumers/service_loader.rb'
-=end

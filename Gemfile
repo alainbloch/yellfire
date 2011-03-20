@@ -6,8 +6,8 @@ gem 'sqlite3'
 
 gem 'twitter'
 
-#gem 'oauth'
-#gem 'oauth-plugin'
+gem 'oauth'
+gem 'oauth-plugin'
 
 gem 'tropo-webapi-ruby', :path => 'vendor/gems/tropo-tropo-webapi-ruby'
 gem 'json'
