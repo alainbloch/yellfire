@@ -18,8 +18,8 @@ gem 'searchlogic'
 gem 'authlogic'
 
 group :development, :test do
-  gem 'ruby-debug'
-  gem 'shoulda', :git => 'git://github.com/thoughtbot/shoulda.git'
-  gem 'mocha',   :git => 'git://github.com/floehopper/mocha.git'
-  gem 'rcov',    :git => 'git://github.com/relevance/rcov.git'
+  # gem 'ruby-debug'
+  # gem 'shoulda', :git => 'git://github.com/thoughtbot/shoulda.git'
+  # gem 'mocha',   :git => 'git://github.com/floehopper/mocha.git'
+  # gem 'rcov',    :git => 'git://github.com/relevance/rcov.git'
 end
