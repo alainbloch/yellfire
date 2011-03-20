@@ -40,7 +40,7 @@
 <div style="float: left; width: 45%;">
   
   <h2>Login</h2>
-  <% form_for @user, :url => sessions_path do %>
+  <% form_for @user, :url => sessions_path do |f| %>
     <p>
       <%= f.label :email, "Email Address" %><br />
       <%= f.text_field :email %>

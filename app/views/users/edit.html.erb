@@ -1,5 +1,28 @@
 <% title "Edit your account" %>
+<h2>Settings</h2>
+<h3>Services</h3>
+<p>Authorize yellfire to broadcast to any of the services we list below.</p>
+<div class="service">
+  <%= link_to image_tag('yammer_up.gif'), '#' %> 
+</div>  
+<div class="service">
+  <%= link_to image_tag('cohuman_up.gif'), '#' %> 
+</div>  
+  
+  
+  <!-- Activeated-button.gif
+  cohuman_down.gif
+  cohuman_up.gif
+  facebook_down.gif
+  facebook_up.gif
+  podio_down.gif
+  podio_up.gif
+  twitter_down.gif
+  twitter_up.gif
+  yammer_down.gif
+  yammer_up.gif -->
 
+<h3>Basic Contact</h3>
 <% form_for @user, :url => user_path(@user.name), :html => {:method => :put, :multipart => true} do |f| %>
   <%= f.error_messages %>
   <p>
@@ -11,13 +34,18 @@
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :bio, "Short Bio" %><br />
-    <%= f.text_area :bio %>
-  </p>
-  <p>
     <%= f.label :password %><br />
     <%= f.password_field :password %>
   </p>
+  <p>
+    <%= f.label :mailing_list, "Mailing List" %><br />
+    <%= f.text_field :mailing_list %>
+  </p>
+  <p>
+    <%= f.label :phone_number, "Phone Number" %><br />
+    <%= f.text_field :phone_number %>
+  </p>
+    
   <p><%= f.submit "Update" %> or <%= link_to "Cancel", root_path %></p>
   
 <% end %>

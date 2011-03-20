@@ -1,12 +1,21 @@
 <% title = 'Messages Yo!!!!!!' %>
 
 
-<em>Link to the shiz:<br /><%= message_url(@message) %></em>
+<div class="landing-page-container">
+  Emergency Landing Page: <%= message_url(@message) %>
+</div>
 
 <div class="show-message">
-  <h1>Emergency</h1>
-  <strong><%= @message.user.name %></strong>  
-  <p><%= @message.body %></p>
+  <br />
+  <br />
+  Posted by <strong><%= @message.user.name %></strong>  
+  <h2>What happened</h2>
+  <p class="big-red-box">
+    <strong>URGENT:</strong><br />
+    <%= @message.body %>
+  </p>
+  <h2>What to do</h2>
+  <p class="big-red-box"><%= @message.what_to_do %></p>
   <em>sent <%= time_ago_in_words @message.created_at %> ago</em>
   <h2>Realtime Discussion</h2>
   <div id="disqus_thread"></div>

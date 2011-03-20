@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
   
   def edit
-    # get_user
+    # @user = User.find_by_id(params[:id])
   end
   
   def update
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
 private
   
   def get_user
-    @user = User.find_by_name(params[:id])
+    @user = User.find_by_id(params[:id])
   end
   
   def correct_user_required

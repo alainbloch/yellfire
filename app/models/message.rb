@@ -1,11 +1,11 @@
 class Message < ActiveRecord::Base
   
-  attr_accessible :body
+  attr_accessible :body, :what_to_do
   
   belongs_to :user
   belongs_to :recipient, :class_name => "User"
   
-  validates_presence_of :user, :body
+  validates_presence_of :user, :body, :what_to_do
   validates_length_of :body, :maximum => 140
   
   before_save :check_for_recipient

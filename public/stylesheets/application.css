@@ -2,6 +2,8 @@ body {
   /*background-color: #4B7399;*/
   font-family: Arial;
   font-size: 14px;
+  margin: 0;
+  padding: 0;
 }
 
 a img {
@@ -14,7 +16,26 @@ a {
 
 h1, h2, h3, h4, h5 {
   color:#ff0000;
-  
+}
+
+.big-red-box {
+ background-color:#fabebb;
+ border: solid 3px #f73a29;
+ padding: 20px;
+ font-size: 20px;
+ color: #333;
+ margin-top: -10px;
+}
+
+.landing-page-container {
+  position: absolute;
+  text-align: center;
+  color: #fff;
+  background-color: #f73a29;
+  line-height: 42px;
+  width: 100%;
+  font-size: 14px;
+  top: 91px; left: 0px;
 }
 
 p.giant {
@@ -76,7 +97,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FC0000', end
 }
 
 #header {
-  padding: 20px 0;
+  padding: 6px 0;
   border-bottom: solid 1px #666;
 /* float:left;
  display:block;
@@ -238,4 +259,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FC0000', end
   box-shadow: 0 1px 5px #666;
   margin: 20px 0;
   
+}
+
+#header .inner {
+  position: relative;
+}
+
+.user-menu {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+label {
+  font-size: 14px;
+}
+
+textarea {
+  width: 100%;
 }

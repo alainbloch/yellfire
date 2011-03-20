@@ -12,7 +12,13 @@
       <div id="header">
         <div class="inner">
           <%# render :partial => "shared/navigation" %>
-          <%= link_to image_tag('yellfire_logo.gif'), root_path %>
+          <%= link_to image_tag('yellfire_logo02.gif'), root_path %>
+          <% if logged_in? %>
+            <div class="user-menu">
+              <%= link_to 'post emergency', root_path %> | 
+              <%= link_to 'settings', edit_user_path(current_user) %>
+            </div>
+          <% end %>
         </div>
       </div>
       <div id="container">
