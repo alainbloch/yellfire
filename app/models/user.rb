@@ -15,6 +15,14 @@ class User < ActiveRecord::Base
   has_many :followers, :through => :followings
   
   has_many :messages, :dependent => :destroy
+  
+  has_one  :facebook, :class_name =>"FacebookToken", :dependent => :destroy
+  has_one  :twitter,  :class_name =>"TwitterToken",  :dependent => :destroy
+  has_one  :yammer,   :class_name =>"YammerToken",   :dependent => :destroy
+  has_one  :cohuman,  :class_name =>"CohumanToken",  :dependent => :destroy
+  has_one  :podio,    :class_name =>"FacebookToken", :dependent => :destroy
+    
+  has_many :consumer_tokens, :dependent => :destroy
     
   # Overriding authlogic validations
   acts_as_authentic do |auth|

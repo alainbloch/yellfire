@@ -9,6 +9,8 @@ class Message < ActiveRecord::Base
   validates_length_of :body, :maximum => 140
   
   before_save :check_for_recipient
+  
+  after_create :yell_fire
     
 private
 
@@ -17,6 +19,18 @@ private
     unless match.blank?
       # first match includes @. second match is just the name
       self.recipient = User.find_by_name(match[1])
+    end
+  end
+  
+  def yell_fire
+    yell_yammer
+  end
+  
+  def yell_yammer
+    yammer = user.consumer_tokens.find_by_service('yammer')
+    if yammer
+      concated_body = "Emergency:\n#{body}\n\nWhat To Do:\n#{what_to_do}"
+      Yammer.post_message(yammer, concated_body)
     end
   end
   

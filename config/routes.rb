@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :oauth_consumers,:member=>{:callback=>:get}
-
+  
+  map.yammer_auth 'yammer_auth', :controller => 'yammer', :action => 'auth'
+  
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.logout 'logout', :controller => 'sessions', :action => 'destroy'
   map.login 'login', :controller => 'sessions', :action => 'new'

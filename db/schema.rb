@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110320205908) do
+ActiveRecord::Schema.define(:version => 20110320223228) do
 
   create_table "consumer_tokens", :force => true do |t|
     t.integer  "user_id"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20110320205908) do
     t.string   "secret"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "service"
   end
 
   add_index "consumer_tokens", ["token"], :name => "index_consumer_tokens_on_token", :unique => true

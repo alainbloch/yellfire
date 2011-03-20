@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  before_filter :login_required, :only => [:dashboard]
+  
   
   def index
     # @messages = Message.find(:all, :limit => 20, :order => "created_at DESC")

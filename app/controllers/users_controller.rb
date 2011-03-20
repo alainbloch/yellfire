@@ -26,6 +26,8 @@ class UsersController < ApplicationController
   end
   
   def edit
+    set_yammer_request_token
+    @consumer_tokens = current_user.consumer_tokens
     # @user = User.find_by_id(params[:id])
   end
   
@@ -35,6 +37,8 @@ class UsersController < ApplicationController
       redirect_to user_path(@user.name)
     else
       flash[:error]  = "Something went wrong."
+      set_yammer_request_token
+      @consumer_tokens = current_user.consumer_tokens
       render :action => "edit"
     end
   end

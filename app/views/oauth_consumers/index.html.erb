@@ -11,19 +11,25 @@
   <ul>
     <% @consumer_tokens.each do |token| %>
       <li>
-        <%= link_to token.class.service_name.to_s.humanize, oauth_consumer_path(token.class.service_name) %>
+        <%= link_to token.service, oauth_consumer_path(token.class.service_name) %>
       </li>
     <% end %>
   </ul>
 <% end %>
 
-<% unless @services.empty? %>
+
+<% unless @consumer_tokens.find_by_service('yammer', 'cohuman', 'podio') %>
 <h3>You can connect to the following services:</h3>
 <ul>
-  <% @services.each do |service| %>
-    <li>
-      <%= link_to service.to_s.humanize, oauth_consumer_path(service) %>
-    </li>
-  <% end %>
+  <li>
+    <%= link_to 'Yammer', @yammer_request_token.authorize_url, :target => "_blank" %>
+      <div style="float:right;">
+        <small>Enter Verification Code Here (copied from <%= link_to "Yammer auth page", @yammer_request_token.authorize_url %>)</small>
+        <% form_tag yammer_auth_path do %>
+          <%= text_field_tag "oauth_verifier" %>
+          <%= submit_tag "submit" %>
+        <% end %>
+      </div>
+  </li>
 </ul>
 <% end %>
