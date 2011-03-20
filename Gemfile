@@ -1,12 +1,15 @@
 source "http://rubygems.org"
 source "http://gems.github.com"
 
-gem 'rails', '2.3.5'
+gem 'rails', '2.3.11'
 gem 'sqlite3'
+
+gem 'twitter'
 
 gem 'oauth'
 gem 'oauth-plugin'
-# gem 'tropo-webapi-ruby', :git => 'git://github.com/tropo/tropo-webapi-ruby.git'
+
+gem 'tropo-webapi-ruby', :path => 'vendor/gems/tropo-tropo-webapi-ruby'
 gem 'json'
 gem 'faker', '0.3.1'
 gem 'populator'
