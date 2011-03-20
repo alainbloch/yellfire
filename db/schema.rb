@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110320183043) do
+ActiveRecord::Schema.define(:version => 20110320193009) do
 
   create_table "consumer_tokens", :force => true do |t|
     t.integer  "user_id"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20110320183043) do
     t.datetime "updated_at"
     t.text     "bio"
     t.string   "phone_number"
+    t.string   "mailing_list"
   end
 
 end

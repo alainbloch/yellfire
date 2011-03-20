@@ -1,20 +1,58 @@
 <% title "Sign up" %>
 
-<p>Already have an account? <%= link_to "Log in", login_path %>.</p>
+<% show_title = false%>
+<p class="giant">
+  YellFire allows you to quickly communicate emergency messages to your  network using phone, sms, or the web. After a message has been sent a dedicated page is created for network communication.</p>
 
-<% form_for @user do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :email, "Email Address" %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p><%= f.submit "Sign up" %></p>
-<% end %>
+
+<div style="float: left; width: 45%;">
+  
+  <h2>Sign Up</h2>
+  <% form_for @user do |f| %>
+    <%= f.error_messages %>
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :email, "Email Address" %><br />
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.label :mailing_list %><br />
+      <%= f.text_field :mailing_list %>
+    </p>
+    <p>
+      <%= f.label :phone_number %><br />
+      <%= f.text_field :phone_number %>
+    </p>
+    
+    
+    <p><%= f.submit "Sign up" %></p>
+  <% end %>
+  
+</div>
+
+<div style="float: left; width: 45%;">
+  
+  <h2>Login</h2>
+  <% form_for @user, :url => sessions_path do %>
+    <p>
+      <%= f.label :email, "Email Address" %><br />
+      <%= f.text_field :email %>
+    </p>
+    
+    <p>
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </p>
+    
+    <p><%= f.submit "Login" %></p>
+    
+  <% end %>
+  
+</div>

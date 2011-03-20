@@ -1,8 +1,6 @@
 <li id="message_<%= message.id%>">
   <% user = message.user %>
-  <div><% content_tag :a, :href => user_path(user.name) do %>
-        <%= user.name %>
-      <% end %>
+  <%= link_to "Show Message", message_path(message) %>
   <div>
     <%= message.body %>
   </div>

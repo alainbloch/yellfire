@@ -8,8 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :member => {:follows => :get, :followers => :get} do |user|
     user.resources :followings, :only => [:create, :destroy]
   end
-  map.resources :messages, :only => [:create]
-  
+  map.resources :messages
+    
   map.dashboard 'dashboard', :controller => 'home', :action => 'dashboard'
    
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
   
   def index
-    @messages = Message.find(:all, :limit => 20, :order => "created_at DESC")
+    # @messages = Message.find(:all, :limit => 20, :order => "created_at DESC")
+    @message = Message.new
     respond_to do |format|
       format.html {}
       format.js {render @messages}

@@ -9,21 +9,23 @@
   </head>
   <body>
     <div id="wrap">
-    <div id="header">
-      <%= render :partial => "shared/navigation" %>
-      <h1><%= link_to "Yell Fire!", root_path %></h1>
-    </div>
-    <div id="container">
-      <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <%- end -%>
+      <div id="header">
+        <div class="inner">
+          <%# render :partial => "shared/navigation" %>
+          <%= link_to image_tag('yellfire_logo.gif'), root_path %>
+        </div>
+      </div>
+      <div id="container">
+        <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <%- end -%>
       
-      <%- if show_title? -%>
-        <h1><%=h yield(:title) %></h1>
-      <%- end -%>
+        <%- if show_title? && false -%>
+          <h1><%=h yield(:title) %></h1>
+        <%- end -%>
       
-      <%= yield %>
-    </div>
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>
