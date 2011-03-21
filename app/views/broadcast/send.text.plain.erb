@@ -1,7 +1,0 @@
-Emergency Message:
-<%= message.body %>
-
-What to do
-<%= message.what_to_do %>
-
-<%= url_for(:host => "http://localhost:3000", :controller => "messages", :action => "show", :params => {:id => @message.id}) %>

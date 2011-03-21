@@ -24,6 +24,7 @@ private
   
   def yell_fire
     yell_yammer
+    yell_email
   end
   
   def yell_yammer
@@ -31,6 +32,12 @@ private
     if yammer
       concated_body = "Emergency:\n#{body}\n\nWhat To Do:\n#{what_to_do}"
       Yammer.post_message(yammer, concated_body)
+    end    
+  end
+  
+  def yell_email
+    if self.user.mailing_list
+      Broadcast.deliver_send_broadcast(self, self.user)
     end
   end
   

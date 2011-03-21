@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(params[:user])
       flash[:notice] = "User has been updated."
-      redirect_to user_path(@user.id)
+      redirect_to root_path
     else
       flash[:error]  = "Something went wrong."
       set_yammer_request_token

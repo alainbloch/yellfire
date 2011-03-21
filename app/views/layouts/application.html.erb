@@ -9,6 +9,9 @@
     <%= yield(:head) %>
   </head>
   <body>
+    <%- flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <%- end -%>
     <div id="wrap">
       <div id="header">
         <div class="inner">
@@ -23,9 +26,6 @@
         </div>
       </div>
       <div id="container">
-        <%- flash.each do |name, msg| -%>
-          <%= content_tag :div, msg, :id => "flash_#{name}" %>
-        <%- end -%>
       
         <%- if show_title? && false -%>
           <h1><%=h yield(:title) %></h1>

@@ -1,15 +1,11 @@
 class Broadcast < ActionMailer::Base
-  
-  default :from => 'no-reply@example.com',
-          :return_path => 'system@example.com'
 
-  def send(message, user)
-    @message = message
-    mail(:to => user.mailing_list,
-         :bcc => ["mkauffman@yammer-inc.com", "Broadcast watcher Watcher <watcher@example.com>"],
-         :subject => 'Emergency Broadcast!!!!!!!!!!!!!')
-    end
+  def send_broadcast(message, user)
+    recipients user.mailing_list
+    from 'no-reply@example.com'
+    bcc ["mkauffman@yammer-inc.com", "Broadcast watcher Watcher <watcher@example.com>"]
+    subject 'Emergency Broadcast!!!!!!!!!!!!!'
+    body :message => message
   end
-
 
 end
