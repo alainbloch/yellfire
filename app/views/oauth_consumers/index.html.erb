@@ -18,13 +18,13 @@
 <% end %>
 
 
-<% unless @consumer_tokens.find_by_service('yammer', 'cohuman', 'podio') %>
+<% unless @consumer_tokens.find_by_service('yammer', 'cohum') %>
 <h3>You can connect to the following services:</h3>
 <ul>
   <li>
     <%= link_to 'Yammer', @yammer_request_token.authorize_url, :target => "_blank" %>
-      <div style="float:right;">
-        <small>Enter Verification Code Here (copied from <%= link_to "Yammer auth page", @yammer_request_token.authorize_url %>)</small>
+      <div>
+        Enter Verification Code Here (copied from <%= link_to "Yammer auth page", @yammer_request_token.authorize_url %>):
         <% form_tag yammer_auth_path do %>
           <%= text_field_tag "oauth_verifier" %>
           <%= submit_tag "submit" %>

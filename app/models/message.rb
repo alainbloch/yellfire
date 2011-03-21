@@ -25,10 +25,11 @@ private
   def yell_fire
     yell_yammer
     yell_email
+    yell_cohuman
   end
   
   def yell_yammer
-    yammer = user.consumer_tokens.find_by_service('yammer')
+    yammer = user.access_tokens.find_by_service('yammer')
     if yammer
       concated_body = "Emergency:\n#{body}\n\nWhat To Do:\n#{what_to_do}"
       Yammer.post_message(yammer, concated_body)
@@ -38,6 +39,14 @@ private
   def yell_email
     if self.user.mailing_list
       Broadcast.deliver_send_broadcast(self, self.user)
+    end
+  end
+  
+  def yell_cohuman
+    access_token = user.access_tokens.find_by_service('cohuman')
+    if access_token
+      concated_body = "Emergency:\n#{body}\n\nWhat To Do:\n#{what_to_do}"
+      Cohuman.yell_fire(access_token, concated_body)
     end
   end
   

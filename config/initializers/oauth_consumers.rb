@@ -52,7 +52,13 @@ OAUTH_CREDENTIALS= {
  },
  :cohuman => {
    :key    => '4f1d386850d7f0d3296a7621af95c03dc524dabc',
-   :secret => 'f9e8559aea955f87952688bc704da2ff4cdfcf59'
+   :secret => 'f9e8559aea955f87952688bc704da2ff4cdfcf59',
+   :options => {
+     :site => 'http://api.cohuman.com',
+     :request_token_path => '/api/token/request',
+     :authorize_path => '/api/authorize',
+     :access_token_path => '/api/token/access'
+   }
  }
 }
 

@@ -3,12 +3,12 @@
 <h3>Services</h3>
 
 
-<% if @consumer_tokens.empty? %>
+<% if @access_tokens.empty? %>
   <p>You are currently not connected to any external services.</p>
 <% else %>
   <p>You are connected to the following services:</p>
   <ul>
-    <% @consumer_tokens.each do |token| %>
+    <% @access_tokens.each do |token| %>
       <div class="service">
         <%= link_to image_tag("#{token.service}_up.gif"), oauth_consumer_path(token.class.service_name) %> 
       </div>        
@@ -19,7 +19,7 @@
 
 <p>Authorize yellfire to broadcast to any of the services we list below.</p>
 
-<% unless @consumer_tokens.find_by_service('yammer')%>
+<% unless @access_tokens.find_by_service('yammer')%>
 <div class="service">
   <div>
     <%= link_to image_tag('yammer_up.gif'), @yammer_request_token.authorize_url, :target => "_blank" %>
@@ -33,11 +33,13 @@
   </div>
 </div>
 <% end %>
+
 <br style="clear:both;">
-<% unless @consumer_tokens.find_by_service('twitter')%>
-<div class="service">
-  <%= link_to image_tag('cohuman_up.gif'), '#' %> 
-</div>
+
+<% unless @access_tokens.find_by_service('cohuman') %>
+  <div class="service">
+    <%= link_to image_tag('cohuman_up.gif'), cohuman_path()  %> 
+  </div>
 <% end %>
 
   

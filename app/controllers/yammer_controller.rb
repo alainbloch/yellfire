@@ -4,10 +4,10 @@ class YammerController < ApplicationController
     oauth_verifier = params[:oauth_verifier]
     access_token = Yammer.get_access_token(session[:yammer_request_token], oauth_verifier)
     if access_token
-      consumer_token = ConsumerToken.create(:user => current_user,
-                                            :service => "yammer",
-                                            :token   => access_token.token,
-                                            :secret  => access_token.secret)      
+      consumer_token = AccessToken.create(:user => current_user,
+                                          :service => "yammer",
+                                          :token   => access_token.token,
+                                          :secret  => access_token.secret)      
       flash[:success] = "You have successfully accessed your Yammer account!"
       redirect_to root_path
     else

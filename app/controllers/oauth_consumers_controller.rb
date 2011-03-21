@@ -1,13 +1,12 @@
 require 'oauth/controllers/consumer_controller'
 class OauthConsumersController < ApplicationController
-
   before_filter :login_required
   
   include Oauth::Controllers::ConsumerController
   
   def index
-    set_yammer_request_token
-    @consumer_tokens = current_user.consumer_tokens
+    @consumer_tokens=ConsumerToken.all :conditions=>{:user_id=>current_user.id}
+    @services=OAUTH_CREDENTIALS.keys-@consumer_tokens.collect{|c| c.class.service_name}
   end
   
   protected
@@ -17,18 +16,6 @@ class OauthConsumersController < ApplicationController
   # of your application depending on what service you're connecting to.
   def go_back
     redirect_to root_url
-  end
-  
-  def set_yammer_request_token
-    if session[:yammer_request_token]
-      @yammer_request_token = session[:yammer_request_token]
-    else
-      reset_yammer_request_token
-    end
-  end
-  
-  def reset_yammer_request_token
-    @yammer_request_token = session[:yammer_request_token] = Yammer.get_request_token
   end
   
 end

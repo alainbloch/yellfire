@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   
   def edit
     set_yammer_request_token
-    @consumer_tokens = current_user.consumer_tokens
+    @access_tokens = current_user.access_tokens
     # @user = User.find_by_id(params[:id])
   end
   

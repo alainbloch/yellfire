@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   has_one  :cohuman,  :class_name =>"CohumanToken",  :dependent => :destroy
   has_one  :podio,    :class_name =>"FacebookToken", :dependent => :destroy
     
+  has_many :access_tokens, :dependent => :destroy  
   has_many :consumer_tokens, :dependent => :destroy
     
   # Overriding authlogic validations

@@ -11,6 +11,9 @@ ActionController::Routing::Routes.draw do |map|
     user.resources :followings, :only => [:create, :destroy]
   end
   map.resources :messages
+  
+  map.cohuman 'cohuman', :controller => 'cohuman', :action => 'index'
+  map.cohuman_callback 'cohuman/callback', :controller => 'cohuman', :action => 'callback'
     
   map.dashboard 'dashboard', :controller => 'home', :action => 'dashboard'
    
