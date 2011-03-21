@@ -8,10 +8,11 @@ class UsersController < ApplicationController
   end
   
   def create
+    if current_user_session then current_user_session.destroy end
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Thank you for signing up! You are now logged in."
-      redirect_to root_url
+      redirect_to edit_user_path(@user.id)
     else
       render :action => 'new'
     end
@@ -34,7 +35,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(params[:user])
       flash[:notice] = "User has been updated."
-      redirect_to user_path(@user.name)
+      redirect_to user_path(@user.id)
     else
       flash[:error]  = "Something went wrong."
       set_yammer_request_token

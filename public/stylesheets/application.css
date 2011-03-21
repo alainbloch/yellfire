@@ -255,7 +255,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FC0000', end
 }
 
 #flash_success {
-  background: lime;
+  z-index: 100;
+  position: fixed;
+  background: #96e788;
   border: solid 1px green;
   padding: 15px;
   font-size: 16px;
@@ -267,6 +269,31 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FC0000', end
   -webkit-box-shadow: 0 1px 5px #666;
   box-shadow: 0 1px 5px #666;
   margin: 20px 0;
+  top: 30px;
+  left: 0%;
+  margin-left: 25%;
+  width: 75%;
+}
+
+#flash_notice {
+  z-index: 100;
+  position: fixed;
+  background: #96e788;
+  border: solid 1px green;
+  padding: 15px;
+  font-size: 16px;
+  border: 3px solid #fff;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0 1px 5px #666;
+  -webkit-box-shadow: 0 1px 5px #666;
+  box-shadow: 0 1px 5px #666;
+  margin: 20px 0;
+  top: 30px;
+  left: 0%;
+  margin-left: 25%;
+  width: 75%;
   
 }
 
